@@ -68,6 +68,11 @@ function playRound (playerSelection, computerSelection){
        function game (){
                 //get user input here 
                 var playerSelection = prompt("Please enter your choice here: ").toLowerCase();
+                //test player input
+                while (playerSelection != "rock" && playerSelection != "scissors" && playerSelection != "paper" ){
+                        var playerSelection = prompt("Please enter your choice here: (rock, scissors or paper)").toLowerCase();
+                        
+                }
                 var counterWins = 0;
                 var counterLoses =0;
                 for(var i = 0; i < 5; i++ ){
