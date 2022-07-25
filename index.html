@@ -5,49 +5,26 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Rock&Paper&Scissors</title>
-        <style>
-                .flexContainer {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        gap: 10px;
-
-                }
-                #mydiv {
-                        width: 600px;
-                        height: 200px;
-                        border-radius: 0.5em;
-                        background-color: pink;
-                        color:black;
-                        font-size: large;
-
-
-
-                }
-                button {
-                        color: #F9FAF8;
-                        background-color: #3882F6;
-                        border-radius: 0.5em;
-                        font-size: 20px; 
-                        width: 120px;
-                        height: 38px; 
-                        margin: 10px;
-                        border-width: 2px;               
-                 }
-        </style>
-        
+        <link rel="stylesheet" href="style.css">  
 </head>
 <body>
         <div class="flexContainer">
-        <div id="mydiv"></div>
+                <div id="mydiv">
+                        <h2> Computer choice: <span id="computer-choice"> </span></h2>
+                        <h2> Your choice: <span id="user-choice"> </span></h2>
+                        <h2> Result: <span id="result"> </span></h2>
+                        <h2> your Score: <span id="user-score"></span></h2>
+                        <h2> computer Score: <span id="computer-score"></span></h2>
+                        <h2> winner: <span id="winner-display"></span></h2>
+                </div>
 
-  <div >
-        <button id="pbtn" >Paper</button>
-        <button id="sbtn" >Scissors</button>
-        <button id="rbtn" >Rock</button>
-      
-  </div>
-</div>
+                <div >
+                <button id="paper" >Paper</button>
+                <button id="scissors" >Scissors</button>
+                <button id="rock" >Rock</button>
+        
+                </div>
+        </div>
         <script src="main.js" ></script>
 </body>
 </html>

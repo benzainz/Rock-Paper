@@ -1,0 +1,33 @@
+body {
+        background-color: #CCC;
+}
+.flexContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+}
+#mydiv {
+        width: 600px;
+        height: 350px;
+        border-radius: 0.5em;
+        background-color: yellow;
+        color:black;
+        font-size: large;
+        padding: 15px;
+        margin-top: 20px;
+
+
+
+}
+button {
+        color: #F9FAF8;
+        background-color: #3882F6;
+        border-radius: 0.5em;
+        font-size: 20px; 
+        width: 120px;
+        height: 38px; 
+        margin: 10px;
+        border-width: 2px;               
+ }
