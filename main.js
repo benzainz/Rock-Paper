@@ -27,45 +27,77 @@ function getComputerChoice(){
          }
 
 }
+var computerSelection = getComputerChoice();
+var mydiv = document.getElementById('mydiv');
+//mydiv.innerHTML+='hello motofakcer';
+//console.log("Computer selection: " + computerSelection)
+
+var paperButton = document.getElementById("pbtn");
+var scissorsButton = document.getElementById("sbtn");
+var rockButton = document.getElementById("rbtn");
+
+paperButton.addEventListener('click', function(){
+        playRound("paper", computerSelection);
+       },false);
+scissorsButton.addEventListener('click', function(){
+        playRound("scissors", computerSelection);
+       },false);
+rockButton.addEventListener('click', function(){
+        playRound("rock", computerSelection);
+       },false);
 
 
+function cambiaColor(){
+        paperButton.style.color = "yellow";
+}
 //this function compares between 2 strings and return a string
-function playRound (playerSelection, computerSelection){
+function playRound (playerSelection , computerSelection){
+        computerSelection = getComputerChoice();
+        console.log("Computer selection: "+ computerSelection)
         if (playerSelection == computerSelection){
-                return "tie";
+                return mydiv.innerHTML+="Tie ";
         }
         else if (playerSelection == "rock" && computerSelection == "scissors"){
-                return "You win";
+                //console.log("You win");
+        
+               return mydiv.innerHTML+='You win! Rock beats scissors ';
         
         }
         else if (playerSelection == "rock" && computerSelection == "paper"){
-               return "You Lose! Paper beats Rock";
+                //console.log("You Lose!, paper beats rock ");
+        
+               return mydiv.innerHTML+='you Lost! Paper beats Rock ';
         
         }
         else if (playerSelection == "scissors" && computerSelection == "paper"){
-                return "You win";
+                return mydiv.innerHTML+="You win! Scissors beats Paper ";
         
         }
         else if (playerSelection == "scissors" && computerSelection == "rock"){
-                return "You Lose! Rock beats Scissors";
-        
+                //return "You Lose! Rock beats Scissors";
+                return mydiv.innerHTML+="You Lose! Rock beats Scissors ";
         }
         else if (playerSelection == "paper" && computerSelection == "rock"){
-                return "You win";
+                
+                return mydiv.innerHTML+="You win! Paper beats Rock ";
+                
         
         }
         else if (playerSelection == "paper" && computerSelection == "scissors"){
-                return "You Lose! Scissors beats Paper";
+                
+                return mydiv.innerHTML+="You Lose! Scissors beats paper ";
         
         }
         
+        
         }
-
+/*
         //we call game which call both functions playRound and getComputerChoice
         game();
 
         //this function call function playRound (5 times) and return a game winner that 
        function game (){
+        
                 //get user input here 
                 var playerSelection = prompt("Please enter your choice here: ").toLowerCase();
                 //test player input
@@ -108,4 +140,4 @@ function playRound (playerSelection, computerSelection){
                 
         }
        
-        
+      */  
