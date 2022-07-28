@@ -11,78 +11,49 @@ let computerSelection;
 let result;
 let userScore = 0;
 let computerScore = 0;
+//when i click any of the button do this:
 possibleChoices.forEach(possibleChoices => possibleChoices.addEventListener('click', (e) => {
+//create playerSelection 
  playerSelection = e.target.id;
  userChoiceDisplay.innerHTML = playerSelection;
+ //create computerSelection
  getComputerChoice();
+ // use both variables (playerSelection and computerSelection) go to the logic and get a result 
  playRound();
 }));
-
+//simple method that use math.random to create a number btw 0-2 and then assign its value 
 function getComputerChoice(){
-        let rdmNumber = Math.floor(Math.random() * 3);
-
-        if (rdmNumber === 0 ){
-                computerSelection = "rock";  
-         }
-         if (rdmNumber === 1 ){
-                computerSelection = "scissors";
-         }
-         if (rdmNumber === 2 ){
-                computerSelection = "paper";
-         }
-         computerChoiceDisplay.innerHTML = computerSelection;
+        const choices = ['rock','paper','scissors']
+        computerSelection = choices[(Math.floor(Math.random() * choices.length))];
+        computerChoiceDisplay.innerHTML = computerSelection;
 
 }
+// method to get the result between two different strings 
 function playRound (){
-        if (playerSelection == computerSelection){
-                result = "It's a draw!";
-                
-        }
-        else if (playerSelection == "rock" && computerSelection == "scissors"){
-                result = "You win";
-                userScore++;
-        
-        }
-        else if (playerSelection == "rock" && computerSelection == "paper"){
-                result = "You Lose! Paper beats Rock";
-                computerScore++;
-        
-        }
-        else if (playerSelection == "scissors" && computerSelection == "paper"){
-                result = "You win";
-                userScore++;
-        
-        }
-        else if (playerSelection == "scissors" && computerSelection == "rock"){
-                result = "You Lose! Rock beats Scissors";
-                computerScore++;
-
-        
-        }
-        else if (playerSelection == "paper" && computerSelection == "rock"){
-                result = "You win";
-                userScore++;
-        
-        }
-        else if (playerSelection == "paper" && computerSelection == "scissors"){
-                result = "You Lose! Scissors beats Paper";
-                computerScore++;
-
-        
-        }
-        resultDisplay.innerHTML = result;
-        userScoreDisplay.innerHTML= userScore;
-        computerScoreDisplay.innerHTML= computerScore;        
-
-        if (userScore == 5 ){
-                winnerDisplay.innerHTML="YOU'RE THE WINNER!!!"
-               // document.removeEventListener('click', playRound);
-                possibleChoices.removeEventListener('click')
-
-        }else if (computerScore == 5){
-                winnerDisplay.innerHTML="SORRY, YOU LOSE!!!"
-               // document.removeEventListener('click', playRound)
-                possibleChoices.removeEventListener('click')
+        switch (playerSelection + computerSelection){
+                case 'rockscissors':
+                case 'paperrock':
+                case 'scissorspaper':
+                        userScore++;
+                        resultDisplay.innerHTML = "You win!";
+                        userScoreDisplay.innerHTML= userScore;
+                        computerScoreDisplay.innerHTML= computerScore;
+                        break
+                case 'paperscissors':
+                case 'scissorsrock':                        
+                case 'rockpaper':
+                        computerScore++;
+                        resultDisplay.innerHTML="You lose!";
+                        userScoreDisplay.innerHTML= userScore;
+                        computerScoreDisplay.innerHTML= computerScore;
+                        break
+                case 'paperpaper':
+                case 'scissorsscissors':
+                case 'rockrock':
+                        resultDisplay.innerHTML="It's a draw";  
+                        break                     
 
         }
+
+        
         }
